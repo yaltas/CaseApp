@@ -2,9 +2,9 @@ package com.yusufaltas.caseapp.data.service.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.yusufaltas.caseapp.data.service.utils.Constants.KEY_LATITUDE_LIST
-import com.yusufaltas.caseapp.data.service.utils.Constants.KEY_LONGITUDE_LIST
-import com.yusufaltas.caseapp.data.service.utils.Constants.SHARED_PREFERENCES_NAME
+import com.yusufaltas.caseapp.model.Constants.KEY_LATITUDE_LIST
+import com.yusufaltas.caseapp.model.Constants.KEY_LONGITUDE_LIST
+import com.yusufaltas.caseapp.model.Constants.SHARED_PREFERENCES_NAME
 import javax.inject.Inject
 
 class SharedPreferencesManager @Inject constructor(private val context: Context) {

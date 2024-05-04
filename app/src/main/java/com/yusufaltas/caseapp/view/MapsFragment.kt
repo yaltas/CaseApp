@@ -36,19 +36,10 @@ class MapsFragment : Fragment(R.layout.maps_layout), OnMapReadyCallback {
             btnStopService.setOnClickListener {
                 stopLocationTracking()
             }
-
             btnClearLocation.setOnClickListener {
                 mapsViewModel.getSharedPreferences().clearLocationList()
             }
-
-            btnListLastLocations.setOnClickListener { //SharedPref. last info list
-                val lastLocation = mapsViewModel.getSharedPreferences().getLocationList()
-                for (location in lastLocation) {
-                    Log.d("Location", "Latitude: ${location.first}, Longitude: ${location.second}")
-                }
-            }
         }
-
     }
 
     private fun initMap() {
@@ -65,23 +56,6 @@ class MapsFragment : Fragment(R.layout.maps_layout), OnMapReadyCallback {
         super.onDestroyView()
     }
 
-
-    //region LOCATION TRACKING SERVICE
-    private fun startLocationTracking() {
-        Log.i("location", "startLocationTracking")
-        mapsViewModel.getSharedPreferences().clearLocationList()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            requireActivity().startForegroundService(Intent(requireContext(), LocationService::class.java))
-        else
-            requireActivity().startService(Intent(requireContext(), LocationService::class.java))
-    }
-
-    private fun stopLocationTracking() {
-        Log.i("location", "stopLocationTracking")
-        requireActivity().stopService(Intent(requireContext(), LocationService::class.java))
-    }
-    //endregion LOCATION TRACKING SERVICE
-
     override fun onMapReady(googleMap: GoogleMap) {
         googleMap.let { gMap ->
             mapsViewModel.setMapInstance(gMap)
@@ -97,4 +71,20 @@ class MapsFragment : Fragment(R.layout.maps_layout), OnMapReadyCallback {
             mapsViewModel.moveCameraToLastLocation()
         }
     }
+
+    //region LOCATION TRACKING SERVICE
+    private fun startLocationTracking() {
+        mapsViewModel.getSharedPreferences().clearLocationList()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            requireActivity().startForegroundService(Intent(requireContext(), LocationService::class.java))
+        else
+            requireActivity().startService(Intent(requireContext(), LocationService::class.java))
+    }
+
+    private fun stopLocationTracking() {
+        requireActivity().stopService(Intent(requireContext(), LocationService::class.java))
+    }
+    //endregion LOCATION TRACKING SERVICE
+
+
 }

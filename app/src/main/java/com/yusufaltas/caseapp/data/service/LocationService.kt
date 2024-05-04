@@ -20,8 +20,8 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.yusufaltas.caseapp.data.service.utils.LocationServiceManager
 import com.yusufaltas.caseapp.data.service.utils.SharedPreferencesManager
-import com.yusufaltas.caseapp.data.service.utils.Constants.LOCATION_NOTIFICATION_CHANNEL_ID
-import com.yusufaltas.caseapp.data.service.utils.Constants.LOCATION_NOTIFICATION_ID
+import com.yusufaltas.caseapp.model.Constants.LOCATION_NOTIFICATION_CHANNEL_ID
+import com.yusufaltas.caseapp.model.Constants.LOCATION_NOTIFICATION_ID
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Singleton
 
@@ -96,12 +96,10 @@ class LocationService : Service() {
     }
 
     private fun saveLocation(location: Location) {
-        Log.i("saveLocation", location.latitude.toString() + " " + location.longitude.toString())
         sharedPreferencesManager.saveLocation( location.latitude, location.longitude)
     }
 
     private fun startForegroundService() {
-        Log.i("location", "startForegroundService")
 
         createNotificationChannel()
         val notification = NotificationCompat.Builder(this, LOCATION_NOTIFICATION_CHANNEL_ID)

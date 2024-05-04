@@ -5,7 +5,5 @@ import com.yusufaltas.caseapp.model.GetSessionResultModel
 import retrofit2.Response
 
 interface CaseRepository {
-
     suspend fun getSession(session: GetSessionModel): Response<GetSessionResultModel>
-
 }

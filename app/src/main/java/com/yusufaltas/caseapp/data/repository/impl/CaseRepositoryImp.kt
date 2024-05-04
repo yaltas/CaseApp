@@ -8,7 +8,6 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class CaseRepositoryImp @Inject constructor(private val apiService: ApiService) : CaseRepository {
-
     override suspend fun getSession(session: GetSessionModel): Response<GetSessionResultModel> {
         return apiService.getSession(session)
     }

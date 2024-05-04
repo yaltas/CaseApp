@@ -9,9 +9,9 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.yusufaltas.caseapp.data.repository.main.CaseRepository
-import com.yusufaltas.caseapp.data.service.utils.Constants.KEY_LATITUDE_LIST
-import com.yusufaltas.caseapp.data.service.utils.Constants.KEY_LONGITUDE_LIST
 import com.yusufaltas.caseapp.data.service.utils.SharedPreferencesManager
+import com.yusufaltas.caseapp.model.Constants.KEY_LATITUDE_LIST
+import com.yusufaltas.caseapp.model.Constants.KEY_LONGITUDE_LIST
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.util.Locale
 import javax.inject.Inject
@@ -20,8 +20,7 @@ import javax.inject.Inject
 class MapsViewModel @Inject constructor(private val apiRepository: CaseRepository, private val sharedPreferencesManager: SharedPreferencesManager) : ViewModel(),
     SharedPreferences.OnSharedPreferenceChangeListener {
     lateinit var map: GoogleMap
-
-    //Burada apiRepository kullanımı yapılmadı, ancak bir network işlemi olsaydı buradan kullanılacaktı, örnek olarak bırakıldı.
+    //Burada apiRepository kullanımı yapılmadı, apiRepository kullanım örneği olarak bırakıldı.
     fun setMapInstance(googleMap: GoogleMap) {
         map = googleMap
     }
@@ -37,8 +36,7 @@ class MapsViewModel @Inject constructor(private val apiRepository: CaseRepositor
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        // SharedPreferences değişikliği işlemleri burada gerçekleştirilebilir
-        if (key == KEY_LATITUDE_LIST || key == KEY_LONGITUDE_LIST)
+        if (key == KEY_LATITUDE_LIST || key == KEY_LONGITUDE_LIST)  // SharedPreferences değişikliği işlemleri burada gerçekleştirilebilir
             refreshMap()
     }
 

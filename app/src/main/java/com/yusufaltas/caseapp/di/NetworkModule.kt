@@ -2,10 +2,10 @@ package com.yusufaltas.caseapp.di
 
 import com.google.gson.GsonBuilder
 import com.yusufaltas.caseapp.data.service.ApiService
-import com.yusufaltas.caseapp.utils.Constants.BASE_URL
-import com.yusufaltas.caseapp.utils.Constants.CONNECT_TIMEOUT
-import com.yusufaltas.caseapp.utils.Constants.READ_TIMEOUT
-import com.yusufaltas.caseapp.utils.Constants.WRITE_TIMEOUT
+import com.yusufaltas.caseapp.model.Constants.BASE_URL
+import com.yusufaltas.caseapp.model.Constants.CONNECT_TIMEOUT
+import com.yusufaltas.caseapp.model.Constants.READ_TIMEOUT
+import com.yusufaltas.caseapp.model.Constants.WRITE_TIMEOUT
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

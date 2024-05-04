@@ -7,11 +7,9 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiService {
-
     //Get Token
     @POST("client/getsession")
     suspend fun getSession(
         @Body sessionModel: GetSessionModel
     ): Response<GetSessionResultModel>
-
 }

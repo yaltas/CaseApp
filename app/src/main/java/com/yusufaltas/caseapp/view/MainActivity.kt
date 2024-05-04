@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.lifecycleScope
 import com.yusufaltas.caseapp.R
-import com.yusufaltas.caseapp.utils.Constants
+import com.yusufaltas.caseapp.model.Constants.PERMISSIONS
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -34,10 +34,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         this.let {
-            if (hasPermissions(this@MainActivity, Constants.PERMISSIONS)) lifecycleScope.launch {
+            if (hasPermissions(this@MainActivity, PERMISSIONS)) lifecycleScope.launch {
                 //If we want it to perform an action when permissions are received, we can write it here.
             }
-            else permissionRequest.launch(Constants.PERMISSIONS)
+            else permissionRequest.launch(PERMISSIONS)
         }
     }
 
