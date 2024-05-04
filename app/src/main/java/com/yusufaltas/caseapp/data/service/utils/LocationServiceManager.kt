@@ -6,7 +6,6 @@ object LocationServiceManager {
     fun isServiceRunning(): Boolean {
         return isServiceRunning
     }
-
     fun setServiceRunning(running: Boolean) {
         isServiceRunning = running
     }

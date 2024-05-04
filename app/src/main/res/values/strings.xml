@@ -5,4 +5,8 @@
     <string name="address_info">Adres Bilgisi</string>
     <string name="ok">Tamam</string>
     <string name="cancel">İptal</string>
+    <string name="start_tracking">Takibi Başlat</string>
+    <string name="stop_tracking">Takibi Durdur</string>
+    <string name="clear_locations">Lokasyonları Sıfırla</string>
+    <string name="saved_locations">Kayıtlı Lokasyonlar</string>
 </resources>

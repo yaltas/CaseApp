@@ -20,8 +20,8 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.yusufaltas.caseapp.data.service.utils.LocationServiceManager
 import com.yusufaltas.caseapp.data.service.utils.SharedPreferencesManager
-import com.yusufaltas.caseapp.utils.Constants.LOCATION_NOTIFICATION_CHANNEL_ID
-import com.yusufaltas.caseapp.utils.Constants.LOCATION_NOTIFICATION_ID
+import com.yusufaltas.caseapp.data.service.utils.Constants.LOCATION_NOTIFICATION_CHANNEL_ID
+import com.yusufaltas.caseapp.data.service.utils.Constants.LOCATION_NOTIFICATION_ID
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Singleton
 
@@ -62,8 +62,13 @@ class LocationService : Service() {
             locationResult.locations.forEach { location ->
                 Log.i("onLocationResult", location.latitude.toString() + " " + location.longitude.toString())
                 if (previousLocation != null) {
-                    val distance = previousLocation!!.distanceTo(location)
-                    if (distance >= 100) {  //Distance value to be checked
+                    if (sharedPreferencesManager.getLocationList().any()) { //If sharedPreferences is reset while the location service continues to run
+                        val distance = previousLocation!!.distanceTo(location)
+                        if (distance >= 100) {  //Distance value to be checked
+                            saveLocation(location)
+                            previousLocation = location
+                        }
+                    } else {
                         saveLocation(location)
                         previousLocation = location
                     }
@@ -92,7 +97,7 @@ class LocationService : Service() {
 
     private fun saveLocation(location: Location) {
         Log.i("saveLocation", location.latitude.toString() + " " + location.longitude.toString())
-        sharedPreferencesManager.saveLocation(this, location.latitude, location.longitude)
+        sharedPreferencesManager.saveLocation( location.latitude, location.longitude)
     }
 
     private fun startForegroundService() {

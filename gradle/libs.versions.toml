@@ -55,21 +55,3 @@ dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "da
 mapsplatform = {id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "mapsplatform-version"}
 
 
-
-#####
-
-#// Core with Ktx
-#implementation "androidx.core:core-ktx:1.8.0"
-#
-#// Navigation Component
-#implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
-#implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
-#
-#// Architecture
-#implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
-#implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
-#implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
-#implementation 'androidx.fragment:fragment-ktx:1.5.5'
-#
-#implementation "androidx.preference:preference-ktx:1.2.0"
-#####

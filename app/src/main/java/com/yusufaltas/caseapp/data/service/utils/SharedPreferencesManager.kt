@@ -2,9 +2,9 @@ package com.yusufaltas.caseapp.data.service.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.yusufaltas.caseapp.utils.Constants.KEY_LATITUDE_LIST
-import com.yusufaltas.caseapp.utils.Constants.KEY_LONGITUDE_LIST
-import com.yusufaltas.caseapp.utils.Constants.SHARED_PREFERENCES_NAME
+import com.yusufaltas.caseapp.data.service.utils.Constants.KEY_LATITUDE_LIST
+import com.yusufaltas.caseapp.data.service.utils.Constants.KEY_LONGITUDE_LIST
+import com.yusufaltas.caseapp.data.service.utils.Constants.SHARED_PREFERENCES_NAME
 import javax.inject.Inject
 
 class SharedPreferencesManager @Inject constructor(private val context: Context) {
@@ -13,7 +13,7 @@ class SharedPreferencesManager @Inject constructor(private val context: Context)
         return context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
     }
 
-    fun saveLocation(context: Context, latitude: Double, longitude: Double) {
+    fun saveLocation(latitude: Double, longitude: Double) {
         val sharedPreferences = getSharedPreferences(context)
         val latitudeList = sharedPreferences.getStringSet(KEY_LATITUDE_LIST, mutableSetOf())?.toMutableSet()
         val longitudeList = sharedPreferences.getStringSet(KEY_LONGITUDE_LIST, mutableSetOf())?.toMutableSet()
@@ -28,7 +28,7 @@ class SharedPreferencesManager @Inject constructor(private val context: Context)
         }
     }
 
-    fun getLocationList(context: Context): List<Pair<Double, Double>> {
+    fun getLocationList(): List<Pair<Double, Double>> {
         val sharedPreferences = getSharedPreferences(context)
         val latitudeList = sharedPreferences.getStringSet(KEY_LATITUDE_LIST, setOf()) ?: setOf()
         val longitudeList = sharedPreferences.getStringSet(KEY_LONGITUDE_LIST, setOf()) ?: setOf()
@@ -36,7 +36,7 @@ class SharedPreferencesManager @Inject constructor(private val context: Context)
         return latitudeList.zip(longitudeList).map { Pair(it.first.toDouble(), it.second.toDouble()) }
     }
 
-    fun clearLocationList(context: Context) {
+    fun clearLocationList() {
         val sharedPreferences = getSharedPreferences(context)
         sharedPreferences.edit().remove(KEY_LATITUDE_LIST).remove(KEY_LONGITUDE_LIST).apply()
     }
