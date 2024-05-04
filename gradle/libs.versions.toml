@@ -1,0 +1,75 @@
+[versions]
+agp = "8.3.0"
+kotlin = "1.9.0"
+coreKtx = "1.12.0"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.6.1"
+material = "1.11.0"
+activity = "1.8.0"
+constraintlayout = "2.1.4"
+dagger = "2.51.1"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
+nav-version = "2.5.3"
+services-maps-version = "18.1.0"
+services-location-version = "21.0.1"
+maps-utils = "2.2.2"
+mapsplatform-version = "2.0.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-nav-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "nav-version" }
+androidx-nav-fragment-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "nav-version" }
+
+# DI
+dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
+dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
+
+# Network
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+okhttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+
+#Maps
+
+services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "services-maps-version" }
+services-location = { module = "com.google.android.gms:play-services-location", version.ref = "services-location-version" }
+maps-utils = { module = "com.google.maps.android:android-maps-utils", version.ref = "maps-utils" }
+
+
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinkapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+mapsplatform = {id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "mapsplatform-version"}
+
+
+
+#####
+
+#// Core with Ktx
+#implementation "androidx.core:core-ktx:1.8.0"
+#
+#// Navigation Component
+#implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+#implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
+#
+#// Architecture
+#implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+#implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+#implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+#implementation 'androidx.fragment:fragment-ktx:1.5.5'
+#
+#implementation "androidx.preference:preference-ktx:1.2.0"
+#####

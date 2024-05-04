@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Case App</string>
+    <string name="google_map_api_key">AIzaSyDYewV5LxSJRrTHHcvTWQ3YCaNYuPS5xcw</string>
+    <string name="all_permission_error">Tüm izinler alınamadı</string>
+    <string name="address_info">Adres Bilgisi</string>
+    <string name="ok">Tamam</string>
+    <string name="cancel">İptal</string>
+</resources>
